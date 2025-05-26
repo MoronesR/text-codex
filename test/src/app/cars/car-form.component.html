@@ -1,0 +1,20 @@
+<h2>{{ isEdit ? 'Editar' : 'Agregar' }} automóvil</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>Marca
+    <input formControlName="marca" />
+  </label>
+  <label>Modelo
+    <input formControlName="modelo" />
+  </label>
+  <label>Año
+    <input formControlName="anio" type="number" />
+  </label>
+  <label>VIN
+    <input formControlName="vin" />
+  </label>
+  <label>Estado
+    <input formControlName="estado" />
+  </label>
+  <button type="submit">Guardar</button>
+  <button type="button" routerLink="/cars">Cancelar</button>
+</form>

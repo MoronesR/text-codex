@@ -1,0 +1,27 @@
+<h2>Automóviles</h2>
+<button routerLink="/cars/new">Agregar automóvil</button>
+<table>
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Año</th>
+      <th>VIN</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars$ | async">
+      <td>{{car.marca}}</td>
+      <td>{{car.modelo}}</td>
+      <td>{{car.anio}}</td>
+      <td>{{car.vin}}</td>
+      <td>{{car.estado}}</td>
+      <td>
+        <a [routerLink]="['/cars', car.id, 'edit']">Editar</a>
+        <button type="button" (click)="deleteCar(car)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
