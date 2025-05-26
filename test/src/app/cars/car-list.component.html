@@ -1,0 +1,38 @@
+<div class="car-admin">
+  <button (click)="add()">Agregar automóvil</button>
+  <table *ngIf="(cars$ | async)?.length; else noData">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>VIN</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars$ | async">
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.year }}</td>
+        <td>{{ car.vin }}</td>
+        <td>{{ car.status }}</td>
+        <td>
+          <button (click)="edit(car)">Editar</button>
+          <button (click)="delete(car)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noData>
+    <p>No hay automóviles registrados.</p>
+  </ng-template>
+
+  <app-car-form
+    *ngIf="showForm"
+    [car]="editingCar"
+    (save)="save($event)"
+    (cancel)="cancel()"
+  ></app-car-form>
+</div>

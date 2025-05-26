@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="car-form">
+  <div>
+    <label>Marca</label>
+    <input formControlName="brand" />
+  </div>
+  <div>
+    <label>Modelo</label>
+    <input formControlName="model" />
+  </div>
+  <div>
+    <label>Año</label>
+    <input type="number" formControlName="year" />
+  </div>
+  <div>
+    <label>VIN</label>
+    <input formControlName="vin" />
+  </div>
+  <div>
+    <label>Estado</label>
+    <input formControlName="status" />
+  </div>
+  <div class="actions">
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancel.emit()">Cancelar</button>
+  </div>
+</form>
